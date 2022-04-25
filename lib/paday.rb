@@ -31,7 +31,7 @@ class Paday < Roda
     # GET /
     r.root do
       {
-        status: 200,
+        status: 'ok',
         start: '/{pages}/{percentage}'
       }
     end
