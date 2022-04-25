@@ -4,14 +4,10 @@
 
 ## Requirements
 
--   Install Ruby via rbenv
--   Install Bundler
+- Ruby
+- Bundler
 
 ## Install
-
-$ git clone [URL]
-
-$ cd paday/
 
 $ bundle
 
@@ -41,7 +37,7 @@ Output(Estimate):
 
 ## Maintainer
 
-[@dngst](https://github.com/dngst "dngst.github.io")
+[@dngst](https://github.com/dngst)
 
 ## Contributing
 
