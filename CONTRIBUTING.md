@@ -20,15 +20,10 @@ approachable and respectable.
 6. Once approved your changes will be merged into staging.
 7. Congratulations! :tada::tada::wine_glass:
 
-## Note:
-
-- See [README.md](./README.md) for local setup instructions.
 - Check [issues](https://github.com/dngst/paday/issues) if you're not sure where
   to start.
-- After picking/submitting an issue to work on, comment in the discussions.
 - Edit the README if need be to keep documentation updated.
 - Keep your branch updated on top of `dev`.
-- Submit a ticket for any found issue.
 - Fix a typo or two.
 
 _A defined number to have in mind whenever you choose to come back to your read._
