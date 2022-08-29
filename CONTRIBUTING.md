@@ -1,7 +1,7 @@
 # Contributing
 
 Thank you for investing your time in contributing to our project! Contributions
-made may be reflected on [paday.herokuapp.com](https://paday.herokuapp.com/)
+made may be reflected on [paday.fly.dev](https://paday.fly.dev/)
 :sparkles:.
 
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community
