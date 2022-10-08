@@ -9,14 +9,14 @@ GEM
       ast (~> 2.4.1)
     puma (5.6.5)
       nio4r (~> 2.0)
-    rack (2.2.4)
+    rack (3.0.0)
     rack-unreloader (2.0.0)
     rainbow (3.1.1)
-    regexp_parser (2.5.0)
+    regexp_parser (2.6.0)
     rexml (3.2.5)
-    roda (3.59.0)
+    roda (3.60.0)
       rack
-    rubocop (1.35.1)
+    rubocop (1.36.0)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
@@ -29,7 +29,7 @@ GEM
     rubocop-ast (1.21.0)
       parser (>= 3.1.1.0)
     ruby-progressbar (1.11.0)
-    unicode-display_width (2.2.0)
+    unicode-display_width (2.3.0)
 
 PLATFORMS
   x86_64-linux
