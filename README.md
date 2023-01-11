@@ -21,7 +21,7 @@ Input:
 
 2. Percentage of the book to read each day.
 
-http://localhost:9292/208/4
+[localhost:9292/208/4](http://localhost:9292/208/4)
 
 Output(Estimate):
 
