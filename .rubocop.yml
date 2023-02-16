@@ -1,5 +1,9 @@
 # See https://docs.rubocop.org/rubocop/configuration
 
+require:
+  - rubocop-rspec
+  - rubocop-performance
+
 AllCops:
   NewCops: enable
 Style/FrozenStringLiteralComment:

@@ -35,6 +35,10 @@ Output(Estimate):
 {"pages":8,"days":26,"date":"02.Jan.2022"}
 ```
 
+## Tests
+
+$ bundle exec rspec
+
 ## Maintainer
 
 [@dngst](https://github.com/dngst)

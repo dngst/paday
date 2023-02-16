@@ -38,8 +38,7 @@ class Paday < Roda
     # Add an extra day for extra pages
     r.get Integer, Integer do |total_pages, percentage|
       pages = (percentage * total_pages) / 100
-      days = if (percentage * total_pages) % 100 != 0 && (total_pages / pages) *
-                                                         pages != total_pages
+      days = if (percentage * total_pages) % 100 != 0 && (total_pages / pages) * pages != total_pages
                (total_pages / pages) + 1
              else
                total_pages / pages
