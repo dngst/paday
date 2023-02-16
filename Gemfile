@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'puma'
+gem 'rack-unreloader'
 gem 'roda'
 
 group :test do
@@ -8,7 +9,6 @@ group :test do
 end
 
 group :development do
-  gem 'rack-unreloader'
   gem 'rubocop', require: false
   gem 'rubocop-performance', '~> 1.16'
   gem 'rubocop-rspec', '~> 2.18'
