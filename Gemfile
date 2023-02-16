@@ -6,6 +6,7 @@ gem 'roda'
 group :test do
   gem 'rack-test', '~> 2.0'
   gem 'rspec', '~> 3.12'
+  gem 'simplecov', require: false
 end
 
 group :development do

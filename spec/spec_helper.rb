@@ -13,6 +13,9 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'simplecov'
+SimpleCov.start
+
 require 'rack/test'
 
 RSpec.configure do |config|

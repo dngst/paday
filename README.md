@@ -3,7 +3,7 @@
 > Read a percentage of a book each day
 
 [![Ruby](https://github.com/dngst/paday/actions/workflows/ruby.yml/badge.svg)](https://github.com/dngst/paday/actions/workflows/ruby.yml)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/c4d75ff6d0be55133bcc/maintainability)](https://codeclimate.com/github/dngst/paday/maintainability)
 
 ## Requirements
 
