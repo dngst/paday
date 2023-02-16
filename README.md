@@ -2,6 +2,9 @@
 
 > Read a percentage of a book each day
 
+[![Ruby](https://github.com/dngst/paday/actions/workflows/ruby.yml/badge.svg)](https://github.com/dngst/paday/actions/workflows/ruby.yml)
+
+
 ## Requirements
 
 - Ruby
