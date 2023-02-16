@@ -7,7 +7,7 @@ RSpec.describe Paday do
   describe 'GET /' do
     it 'returns http success' do
       get '/'
-      expect(last_response).to be_ok
+      expect(last_response.status).to eq(200)
     end
 
     it 'returns start message' do
@@ -29,7 +29,7 @@ RSpec.describe Paday do
   describe 'GET /unkown' do
     it 'returns http not found' do
       get '/e'
-      expect(last_response).to be_not_found
+      expect(last_response.status).to eq(404)
     end
 
     it 'returns an error message' do
@@ -54,6 +54,29 @@ RSpec.describe Paday do
     it 'returns a JSON response' do
       get '/208/4'
       expect(last_response.content_type).to eq('application/json')
+    end
+  end
+
+  describe 'GET /101/5' do
+    it 'adds an extra day for extra pages' do
+      get '/101/5'
+      expect(last_response.body).to eq(
+        "{\"pages\":5,\"days\":21,\"date\":\"#{(Date.today + 21).strftime('%d.%b.%Y')}\"}"
+      )
+    end
+  end
+
+  describe 'GET /11/5' do
+    it 'returns a 500 status code' do
+      get '/11/5'
+      expect(last_response.status).to eq(500)
+    end
+
+    it 'returns an error message' do
+      get '/11/5'
+      expect(last_response.body).to eq(
+        '{"error":{"status":500,"message":"Server Error","verbose":"divided by 0"}}'
+      )
     end
   end
 end
