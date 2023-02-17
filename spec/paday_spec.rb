@@ -1,8 +1,14 @@
 require 'paday'
 
 RSpec.describe Paday do
-  it { expect(described_class).to be_a Module }
-  it { expect(described_class).to be < Roda }
+  let(:resp) { last_response }
+
+  describe 'Paday' do
+    subject { described_class }
+
+    it { is_expected.to be_a Module }
+    it { is_expected.to be < Roda }
+  end
 
   describe 'GET /' do
     before do
@@ -10,19 +16,19 @@ RSpec.describe Paday do
     end
 
     it 'returns http success' do
-      expect(last_response.status).to eq(200)
+      expect(resp.status).to eq(200)
     end
 
     it 'returns start message' do
-      expect(last_response.body).to eq('{"status":"ok","start":"/{pages}/{percentage}"}')
+      expect(resp.body).to eq('{"status":"ok","start":"/{pages}/{percentage}"}')
     end
 
     it 'allows cors' do
-      expect(last_response.headers['access-control-allow-origin']).to eq('*')
+      expect(resp.headers['access-control-allow-origin']).to eq('*')
     end
 
     it 'only allows the get method' do
-      expect(last_response.headers['access-control-allow-methods']).to eq('GET')
+      expect(resp.headers['access-control-allow-methods']).to eq('GET')
     end
   end
 
@@ -32,11 +38,11 @@ RSpec.describe Paday do
     end
 
     it 'returns http not found' do
-      expect(last_response.status).to eq(404)
+      expect(resp.status).to eq(404)
     end
 
     it 'returns an error message' do
-      expect(last_response.body).to eq('{"error":{"status":404,"message":"Page Not Found"}}')
+      expect(resp.body).to eq('{"error":{"status":404,"message":"Page Not Found"}}')
     end
   end
 
@@ -46,24 +52,31 @@ RSpec.describe Paday do
     end
 
     it 'returns http success' do
-      expect(last_response).to be_ok
+      expect(resp.status).to eq(200)
     end
 
     it 'returns correct calculation' do
-      expect(last_response.body).to eq(
+      expect(resp.body).to eq(
         "{\"pages\":8,\"days\":26,\"date\":\"#{(Date.today + 26).strftime('%d.%b.%Y')}\"}"
       )
     end
 
     it 'returns a JSON response' do
-      expect(last_response.content_type).to eq('application/json')
+      expect(resp.content_type).to eq('application/json')
     end
   end
 
   describe 'GET /101/5' do
-    it 'adds an extra day for extra pages' do
+    before do
       get '/101/5'
-      expect(last_response.body).to eq(
+    end
+
+    it 'returns http success' do
+      expect(resp.status).to eq(200)
+    end
+
+    it 'adds an extra day for extra pages' do
+      expect(resp.body).to eq(
         "{\"pages\":5,\"days\":21,\"date\":\"#{(Date.today + 21).strftime('%d.%b.%Y')}\"}"
       )
     end
@@ -75,11 +88,11 @@ RSpec.describe Paday do
     end
 
     it 'returns a 500 status code' do
-      expect(last_response.status).to eq(500)
+      expect(resp.status).to eq(500)
     end
 
     it 'returns an error message' do
-      expect(last_response.body).to eq(
+      expect(resp.body).to eq(
         '{"error":{"status":500,"message":"Server Error","verbose":"divided by 0"}}'
       )
     end
