@@ -6,7 +6,8 @@ class Paday < Roda
   plugin :default_headers,
          'Content-Type' => 'application/json',
          'Access-Control-Allow-Origin' => '*',
-         'Access-Control-Allow-Methods' => 'GET'
+         'Access-Control-Allow-Methods' => 'GET',
+         'Accept' => 'version=1.0'
   plugin :not_found do
     {
       error: {

@@ -30,6 +30,10 @@ RSpec.describe Paday do
     it 'only allows the get method' do
       expect(resp.headers['access-control-allow-methods']).to eq('GET')
     end
+
+    it 'returns the correct version number' do
+      expect(resp.headers['accept']).to eq('version=1.0')
+    end
   end
 
   describe 'GET /unkown' do
