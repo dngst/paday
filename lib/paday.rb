@@ -1,6 +1,5 @@
 require 'roda'
 
-# Calculate pages, days & date
 class Paday < Roda
   plugin :json
   plugin :default_headers,
@@ -27,23 +26,14 @@ class Paday < Roda
   end
 
   route do |r|
-    # GET /
     r.root do
-      {
-        status: 'ok',
-        start: '/{pages}/{percentage}'
-      }
+      { status: 'ok', start: '/{pages}/{percentage}' }
     end
 
-    # GET /{pages}/{percentage}
-    # Add an extra day for extra pages
     r.get Integer, Integer do |total_pages, percentage|
       pages = (percentage * total_pages) / 100
-      days = if (percentage * total_pages) % 100 != 0 && (total_pages / pages) * pages != total_pages
-               (total_pages / pages) + 1
-             else
-               total_pages / pages
-             end
+      extra_pages = (percentage * total_pages) % 100 != 0 && (total_pages / pages) * pages != total_pages
+      days = extra_pages ? total_pages / pages + 1 : total_pages / pages
       date = Date.today + days
       {
         pages: pages,
