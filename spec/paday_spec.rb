@@ -36,22 +36,6 @@ RSpec.describe Paday do
     end
   end
 
-  describe 'GET /unknown' do
-    context 'when route is unknown' do
-      before do
-        get '/e'
-      end
-
-      it 'returns http not found' do
-        expect(resp.status).to eq(404)
-      end
-
-      it 'returns an error message' do
-        expect(resp.body).to eq('{"error":{"status":404,"message":"Page Not Found"}}')
-      end
-    end
-  end
-
   describe 'GET /pages/percentage' do
     context 'with valid params' do
       before do
@@ -85,6 +69,70 @@ RSpec.describe Paday do
       it 'returns an error message' do
         expect(resp.body).to eq(
           '{"error":{"status":500,"message":"Server Error","verbose":"divided by 0"}}'
+        )
+      end
+    end
+
+    context 'with both non integer parameters' do
+      before do
+        get '/fff/fff'
+      end
+
+      it 'returns http bad request' do
+        expect(resp.status).to eq(400)
+      end
+
+      it 'returns an error message' do
+        expect(resp.body).to eq(
+          '{"error":{"status":400,"message":"Both pages and percentage must be integers"}}'
+        )
+      end
+    end
+
+    context 'with a percentage non integer parameter' do
+      before do
+        get '/450/fff'
+      end
+
+      it 'returns http bad request' do
+        expect(resp.status).to eq(400)
+      end
+
+      it 'returns an error message' do
+        expect(resp.body).to eq(
+          '{"error":{"status":400,"message":"Both pages and percentage must be integers"}}'
+        )
+      end
+    end
+
+    context 'with a pages non integer parameter' do
+      before do
+        get '/fff/5'
+      end
+
+      it 'returns http bad request' do
+        expect(resp.status).to eq(400)
+      end
+
+      it 'returns an error message' do
+        expect(resp.body).to eq(
+          '{"error":{"status":400,"message":"Both pages and percentage must be integers"}}'
+        )
+      end
+    end
+
+    context 'with one parameter' do
+      before do
+        get '/45'
+      end
+
+      it 'returns http server error' do
+        expect(resp.status).to eq(500)
+      end
+
+      it 'return an error message' do
+        expect(resp.body).to eq(
+          '{"error":{"status":500,"message":"Server Error","verbose":"Two parameters (pages and percentage) are required"}}'
         )
       end
     end

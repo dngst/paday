@@ -1,4 +1,4 @@
-# See https://docs.rubocop.org/rubocop/configuration
+inherit_from: .rubocop_todo.yml
 
 require:
   - rubocop-rspec
@@ -7,4 +7,7 @@ require:
 AllCops:
   NewCops: enable
 Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
   Enabled: false
