@@ -10,9 +10,7 @@ RSpec.describe Paday do
 
   describe 'GET /' do
     context 'when it loads' do
-      before do
-        get '/'
-      end
+      before { get '/' }
 
       it 'returns http success' do
         expect(resp.status).to eq(200)
@@ -38,9 +36,7 @@ RSpec.describe Paday do
 
   describe 'GET /pages/percentage' do
     context 'with valid params' do
-      before do
-        get '/208/4'
-      end
+      before { get '/208/4' }
 
       it 'returns http success' do
         expect(resp.status).to eq(200)
@@ -58,9 +54,7 @@ RSpec.describe Paday do
     end
 
     context 'with invalid params' do
-      before do
-        get '/11/5'
-      end
+      before { get '/11/5' }
 
       it 'returns a http server error' do
         expect(resp.status).to eq(500)
@@ -74,9 +68,7 @@ RSpec.describe Paday do
     end
 
     context 'with both non integer parameters' do
-      before do
-        get '/fff/fff'
-      end
+      before { get '/fff/fff' }
 
       it 'returns http bad request' do
         expect(resp.status).to eq(400)
@@ -90,9 +82,7 @@ RSpec.describe Paday do
     end
 
     context 'with a percentage non integer parameter' do
-      before do
-        get '/450/fff'
-      end
+      before { get '/450/fff' }
 
       it 'returns http bad request' do
         expect(resp.status).to eq(400)
@@ -106,9 +96,7 @@ RSpec.describe Paday do
     end
 
     context 'with a pages non integer parameter' do
-      before do
-        get '/fff/5'
-      end
+      before { get '/fff/5' }
 
       it 'returns http bad request' do
         expect(resp.status).to eq(400)
@@ -122,9 +110,7 @@ RSpec.describe Paday do
     end
 
     context 'with one parameter' do
-      before do
-        get '/45'
-      end
+      before { get '/45' }
 
       it 'returns http server error' do
         expect(resp.status).to eq(500)
@@ -138,9 +124,7 @@ RSpec.describe Paday do
     end
 
     context 'with a remainder' do
-      before do
-        get '/101/5'
-      end
+      before { get '/101/5' }
 
       it 'returns http success' do
         expect(resp.status).to eq(200)

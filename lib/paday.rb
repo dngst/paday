@@ -35,7 +35,7 @@ class Paday < Roda
       }
     end
 
-    r.get(%r{(\d+)/(\D+)|(\D+)/(\d+)|(\D+)/(\D+)}) do |_, _, _, _, _, _|
+    r.get(%r{(\d+)/(\D+)|(\D+)/(\d+)|(\D+)/(\D+)}) do
       response.status = 400
       { error: { status: 400, message: 'Both pages and percentage must be integers' } }
     end
