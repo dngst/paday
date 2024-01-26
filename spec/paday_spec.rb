@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe Paday do
   let(:resp) { last_response }
 
