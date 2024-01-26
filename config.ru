@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # used to start the application
 
 dev = ENV['RACK_ENV'] == 'development'
