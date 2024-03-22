@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require 'roda'
+require "roda"
 
 class Paday < Roda
   plugin :json
   plugin :default_headers,
-         'Content-Type' => 'application/json',
-         'Access-Control-Allow-Origin' => '*',
-         'Access-Control-Allow-Methods' => 'GET',
-         'Accept' => 'version=1.0'
+    "Content-Type" => "application/json",
+    "Access-Control-Allow-Origin" => "*",
+    "Access-Control-Allow-Methods" => "GET",
+    "Accept" => "version=1.0"
 
   plugin :error_handler do |e|
     {
       error: {
         status: 500,
-        message: 'Server Error',
+        message: "Server Error",
         verbose: e.message
       }
     }
@@ -22,7 +22,7 @@ class Paday < Roda
 
   route do |r|
     r.root do
-      { status: 'ok', start: '/{pages}/{percentage}' }
+      {status: "ok", start: "/{pages}/{percentage}"}
     end
 
     r.get Integer, Integer do |total_pages, percentage|
@@ -33,17 +33,17 @@ class Paday < Roda
       {
         pages: pages,
         days: days,
-        date: date.strftime('%d %b %Y')
+        date: date.strftime("%d %b %Y")
       }
     end
 
     r.get(%r{(\d+)/(\D+)|(\D+)/(\d+)|(\D+)/(\D+)}) do
       response.status = 400
-      { error: { status: 400, message: 'Both pages and percentage must be integers' } }
+      {error: {status: 400, message: "Both pages and percentage must be integers"}}
     end
 
     r.get do
-      raise ArgumentError, 'Two parameters (pages and percentage) are required'
+      raise ArgumentError, "Two parameters (pages and percentage) are required"
     end
   end
 end
