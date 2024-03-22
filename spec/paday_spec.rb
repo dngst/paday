@@ -46,7 +46,7 @@ RSpec.describe Paday do
 
       it 'returns correct calculation' do
         expect(resp.body).to eq(
-          "{\"pages\":8,\"days\":26,\"date\":\"#{(Date.today + 26).strftime('%d.%b.%Y')}\"}"
+          "{\"pages\":8,\"days\":26,\"date\":\"#{(Date.today + 26).strftime('%d %b %Y')}\"}"
         )
       end
 
@@ -134,7 +134,7 @@ RSpec.describe Paday do
 
       it 'adds an extra day for extra pages' do
         expect(resp.body).to eq(
-          "{\"pages\":5,\"days\":21,\"date\":\"#{(Date.today + 21).strftime('%d.%b.%Y')}\"}"
+          "{\"pages\":5,\"days\":21,\"date\":\"#{(Date.today + 21).strftime('%d %b %Y')}\"}"
         )
       end
     end
