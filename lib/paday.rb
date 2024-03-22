@@ -33,7 +33,7 @@ class Paday < Roda
       {
         pages: pages,
         days: days,
-        date: date.strftime('%d.%b.%Y')
+        date: date.strftime('%d %b %Y')
       }
     end
 
