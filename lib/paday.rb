@@ -11,7 +11,7 @@ class Paday < Roda
          'Accept' => 'version=1.0'
 
   plugin :error_handler do |e|
-    { error: { status: 500, mesage: e.message } }
+    { error: { status: 500, message: e.message } }
   end
 
   route do |r|
