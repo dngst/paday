@@ -11,13 +11,7 @@ class Paday < Roda
          'Accept' => 'version=1.0'
 
   plugin :error_handler do |e|
-    {
-      error: {
-        status: 500,
-        message: 'Server Error',
-        verbose: e.message
-      }
-    }
+    { error: { status: 500, message: e.message } }
   end
 
   route do |r|
@@ -30,11 +24,7 @@ class Paday < Roda
       extra_pages = (percentage * total_pages) % 100 != 0 && (total_pages / pages) * pages != total_pages
       days = extra_pages ? (total_pages / pages) + 1 : total_pages / pages
       date = Date.today + days
-      {
-        pages: pages,
-        days: days,
-        date: date.strftime('%d %b %Y')
-      }
+      { pages: pages, days: days, date: date.strftime('%d %b %Y') }
     end
 
     r.get(%r{(\d+)/(\D+)|(\D+)/(\d+)|(\D+)/(\D+)}) do

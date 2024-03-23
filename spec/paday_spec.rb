@@ -64,7 +64,7 @@ RSpec.describe Paday do
 
       it 'returns an error message' do
         expect(resp.body).to eq(
-          '{"error":{"status":500,"message":"Server Error","verbose":"divided by 0"}}'
+          '{"error":{"status":500,"message":"divided by 0"}}'
         )
       end
     end
@@ -120,7 +120,7 @@ RSpec.describe Paday do
 
       it 'return an error message' do
         expect(resp.body).to eq(
-          '{"error":{"status":500,"message":"Server Error","verbose":"Two parameters (pages and percentage) are required"}}'
+          '{"error":{"status":500,"message":"Two parameters (pages and percentage) are required"}}'
         )
       end
     end
