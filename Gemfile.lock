@@ -20,7 +20,7 @@ GEM
     rack-unreloader (2.1.0)
     rainbow (3.1.1)
     regexp_parser (2.9.2)
-    rexml (3.3.3)
+    rexml (3.3.6)
       strscan
     roda (3.80.0)
       rack
