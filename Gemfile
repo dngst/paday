@@ -13,6 +13,4 @@ end
 
 group :development do
   gem 'rubocop', require: false
-  gem 'rubocop-performance', '~> 1.16'
-  gem 'rubocop-rspec', '~> 2.18'
 end
